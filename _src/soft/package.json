@@ -1,0 +1,21 @@
+{
+  "name": "square-cloth",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A black satin cloth staked at its corners, filling the window, with autoplay. Solver adapted from threejs-particle-fluids (MIT).",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "three": "0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "0.184.0",
+    "@webgpu/types": "0.1.74",
+    "typescript": "5.6.3",
+    "vite": "6.4.3"
+  }
+}
