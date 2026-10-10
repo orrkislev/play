@@ -66,7 +66,11 @@ const REBUILD_DELAY = 250;
  */
 const HALF_HEIGHT = ((SIZE / 2) * STAKE_SCALE) / OVERSIZE;
 
-const renderer = await createParticleRenderer({ antialias: true });
+const msg = document.getElementById('msg')!;
+const renderer = await createParticleRenderer({ antialias: true }).catch((e) => {
+  msg.textContent = 'This sketch runs on WebGPU, which this browser or device doesn’t support. Try it on a desktop browser.';
+  throw e;
+});
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 // Flat white on screen: no tone mapping, so the background stays pure white.
 renderer.toneMapping = NoToneMapping;
@@ -365,6 +369,7 @@ async function frame(): Promise<void> {
     refreshPositions();
   }
   await post.renderAsync();
+  msg.hidden = true;
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);

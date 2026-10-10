@@ -1,1 +1,1 @@
-{ "cleanUrls": true, "trailingSlash": true }
+{"cleanUrls": true, "trailingSlash": true, "redirects": [{"source": "/", "destination": "https://orrkislev.work", "permanent": false}]}

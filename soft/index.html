@@ -2,9 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Relative ./assets paths need the trailing slash; not every server adds it.
+      if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html'))
+        location.replace(location.pathname + '/' + location.search + location.hash);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:," />
-    <title>Velvet square · Cloth</title>
+    <title>soft</title>
     <style>
       html,
       body {
@@ -16,9 +21,36 @@
       canvas {
         display: block;
       }
+      #msg {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        text-align: center;
+        font: 15px/1.5 system-ui, sans-serif;
+        color: #888;
+      }
+      .loading::after {
+        content: '…';
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+        width: 0;
+        animation: dots 1.2s steps(4) infinite;
+      }
+      @keyframes dots {
+        to {
+          width: 1.25em;
+        }
+      }
+      #msg[hidden] {
+        display: none;
+      }
     </style>
-    <script type="module" crossorigin src="./assets/index-B8JVtKq_.js"></script>
+    <script type="module" crossorigin src="./assets/index-BIVtjsjA.js"></script>
   </head>
   <body>
+    <div id="msg"><span class="loading">loading</span></div>
   </body>
 </html>
